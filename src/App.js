@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import React from 'react';
+import {Route, Switch} from "react-router-dom";
 import './App.css';
+import HomePage from "./pages/home/HomePage";
+import SubredditPage from "./pages/subreddit/SubredditPage";
+
+
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+          <Switch>
+              <Route exact path="/">
+                  <HomePage />
+              </Route>
+              <Route path="/subreddit/:id">
+                  <SubredditPage />
+              </Route>
+          </Switch>
+
+          <footer className="outer-content-container">
+              <div className="inner-content-container">
+                <div>Assignmet NOVI Hogeschool © 2022</div>
+                <div>Edwin Rodriguez Valle</div>
+              </div>
+          </footer>
+      </>
+
   );
 }
 
